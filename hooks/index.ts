@@ -1,1 +1,1 @@
-export { default as useFocus } from "./useFocus";
+export { useFocus } from "./useFocus";
