@@ -1,5 +1,5 @@
-import { TextInput as RNTextInput, TextInputProps as RNTextInputProps } from "react-native";
-import { useFocus } from "@/shared/hooks";
+import { TextInput as RNTextInput, TextInputProps as RNTextInputProps, Text, View } from "react-native";
+import { useFocus } from "../../../hooks";
 import { styles } from "./styles";
 
 namespace TextInput {
@@ -8,16 +8,19 @@ namespace TextInput {
   }
 }
 
-export const TextInput = ({ inputMode = "text", ...props }: TextInput.Props) => {
-  const { isFocused, ...focusRest } = useFocus();
+export const TextInput = ({ inputMode = "text", accessibilityLabel, ...props }: TextInput.Props) => {
+  const inputFocus = useFocus();
 
   return (
-    <RNTextInput
-      style={[styles.textInput, isFocused && styles.focus]}
-      placeholderTextColor={"#a1a1aa"}
-      inputMode={inputMode}
-      {...props}
-      {...focusRest}
-    />
+    <View style={styles.textInput}>
+      <Text style={styles.label}>{accessibilityLabel}</Text>
+      <RNTextInput
+        style={[styles.input, inputFocus.isFocused && styles.focus]}
+        placeholderTextColor={"#a1a1aa"}
+        inputMode={inputMode}
+        {...props}
+        {...inputFocus}
+      />
+    </ View>
   );
 };

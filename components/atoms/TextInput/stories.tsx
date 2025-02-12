@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    placeholder: "Text Input",
-    accessibilityLabel: "A single line text input"
+    placeholder: "hello@communalists.com",
+    accessibilityLabel: "E-mail"
   },
 };

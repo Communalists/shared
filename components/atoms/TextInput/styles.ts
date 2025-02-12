@@ -1,7 +1,23 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 export const styles = StyleSheet.create({
   textInput: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 8
+  },
+  label: {
+    color: "#e5e7eb",
+    ...Platform.select({
+      web: {
+        fontSize: "1em"
+      },
+      default: {
+        fontSize: 16
+      }
+    })
+  },
+  input: {
     borderWidth: 2,
     borderRadius: 8,
     paddingHorizontal: 18,
