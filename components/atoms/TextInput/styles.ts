@@ -1,4 +1,5 @@
-import { StyleSheet, Platform } from "react-native";
+import { __size_1 } from "@/shared/configs/theme";
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   textInput: {
@@ -8,14 +9,7 @@ export const styles = StyleSheet.create({
   },
   label: {
     color: "#e5e7eb",
-    ...Platform.select({
-      web: {
-        fontSize: "1em"
-      },
-      default: {
-        fontSize: 16
-      }
-    })
+    fontSize: __size_1
   },
   input: {
     borderWidth: 2,
